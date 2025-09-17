@@ -1,0 +1,79 @@
+@import "bootstrap";
+
+body {
+    background-color: #212529;
+    font-family: 'SF-Pro-Display-Semibold', serif;
+}
+
+.border {
+    border: 2px solid white;
+}
+
+.btn-grad {
+    background-image: linear-gradient(to right, #232526 0%, #414345 51%, #232526 100%)
+}
+
+.btn-grad {
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    font-weight: 700;
+    border: 1px solid rgba(80, 80, 80, 0.829);
+}
+
+.btn-grad:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+
+.form-control::placeholder {
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.form-control {
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    border: none;
+    background-color: #2929298e;
+    transition: 0.3s;
+}
+
+.form-control:active {
+    border: none;
+    box-shadow: none;
+    background-color: #1f1f1f8e;
+
+}
+
+.form-control:focus {
+    border: none;
+    box-shadow: none;
+    background-color: #1f1f1f8e;
+}
+
+.form-control:hover {
+    border: none;
+    box-shadow: none;
+    background-color: #1f1f1f8e;
+}
+
+.text-reset-password:hover {
+    background-color: rgba(245, 222, 179, 0);
+}
+
+@font-face {
+    font-family: 'SF-Pro-Display-Semibold';
+    src: url('@/assets/fonts/SanFranciscoProDisplay/SF-Pro-Display-Semibold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
