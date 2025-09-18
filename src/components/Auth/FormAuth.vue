@@ -18,6 +18,11 @@ import { onClickLoginButton } from "@/services/auth/altv";
         </div>
         <button type="button" class="btn btn-grad w-100" @click="onClickLoginButton">Войти</button>
     </form>
+
+    <div class="mt-3 text-center">
+        <a class="text-decoration-none text-secondary text-reset-password"  style="font-weight: 600;">Забыли
+            пароль?</a>
+    </div>
 </template>
 
 <style scoped>

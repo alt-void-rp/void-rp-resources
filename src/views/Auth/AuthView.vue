@@ -22,10 +22,10 @@ import FormAuth from "@/components/Auth/FormAuth.vue";
 
                             <FormAuth />
                             
-                            <div class="mt-3 text-center">
-                                <a class="text-decoration-none text-secondary text-reset-password"  style="font-weight: 600;">Забыли
-                                    пароль?</a>
-                                    
+                            
+
+                            <div class="mt-3 text-center" id="block-error" style="display: none;">
+                                <h6 class="text-danger" id="error-message"></h6>
                             </div>
                         </div>
 
@@ -36,9 +36,8 @@ import FormAuth from "@/components/Auth/FormAuth.vue";
             </div>
 
         </div>
-
     </div>
 </template>
-
 <style scoped>
 </style>
+
