@@ -32,6 +32,30 @@ body {
     text-decoration: none;
 }
 
+.btn-back {
+    background-image: linear-gradient(to right, #232526 0%, #414345 51%, #232526 100%)
+}
+
+.btn-back {
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    font-weight: 700;
+    border: 1px solid rgba(80, 80, 80, 0.829);
+
+}
+
+.btn-back:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
 
 .form-control::placeholder {
     color: white;
@@ -71,9 +95,27 @@ body {
     background-color: rgba(245, 222, 179, 0);
 }
 
+p {
+    font-family: 'SF-Pro-Display-Medium';
+}
+
 @font-face {
     font-family: 'SF-Pro-Display-Semibold';
     src: url('@/assets/fonts/SanFranciscoProDisplay/SF-Pro-Display-Semibold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF-Pro-Display-Regular';
+    src: url('@/assets/fonts/SanFranciscoProDisplay/SF-Pro-Display-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF-Pro-Display-Medium';
+    src: url('@/assets/fonts/SanFranciscoProDisplay/SF-Pro-Display-Medium.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
