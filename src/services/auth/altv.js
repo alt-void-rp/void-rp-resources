@@ -21,9 +21,7 @@ function hideErrorBox(id_block_error) {
     let block_error = document.getElementById(id_block_error);
     block_error.style.display = "none";
 }
-
 //
-
 
 export function onClickLoginButton() {
     const login = document.getElementById('login_field').value.trim();
@@ -53,6 +51,16 @@ export function switchOtpForm() {
     isOtp.value = !isOtp.value;
 }
 
+export function submitOtpForm() {
+    const data = {
+        otp_code: Array.from(document.querySelectorAll('.otp-input')).map(element => element.value.trim()).join('')
+    };
+
+    const jsonData = JSON.stringify(data);
+    alt.emit("auth:otpValidate", jsonData);
+}
+
+
 alt.on('auth:failAuthUser', (data) => {
     if (data.reason == "password-login-novalid") {
         showErrorBox(data.message, 'block-error', 'error-message');
@@ -61,14 +69,14 @@ alt.on('auth:failAuthUser', (data) => {
 
 
 
-alt.on('auth:failResetPasswordUserUser', (data) => {
+alt.on('auth:failResetPasswordUser', (data) => {
     if (data.reason == "password-reset-email-no-found") {
         showErrorBox(data.message, 'reset-pass-block-error', 'reset-pass-error-message');
     }
 });
 
 
-alt.on('auth:successResetPasswordUserUser', (data) => {
+alt.on('auth:successResetPasswordUser', (data) => {
     if (!data.success) {
         return;
     }
@@ -76,5 +84,18 @@ alt.on('auth:successResetPasswordUserUser', (data) => {
     isOtp.value = true;
 });
 
+// otp
+
+alt.on('auth:novalidOtpUser', (data) => {
+    if (data.reason == "otp-code-novalid") {
+        showErrorBox(data.message, 'otp-block-error', 'otp-error-message');
+    }
+});
+
+alt.on('auth:successOtpUser', (data) => {
+    if (!data.success) {
+        return;
+    }
+});
 
 

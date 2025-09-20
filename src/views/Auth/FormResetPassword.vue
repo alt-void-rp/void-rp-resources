@@ -2,7 +2,7 @@
 import "@/assets/auth/css/otpStyles.css"
 
 import { isOtp } from "@/services/auth/altv";
-import { onClickResetPasswordButton, switchOtpForm } from "@/services/auth/altv";
+import { onClickResetPasswordButton, switchOtpForm, submitOtpForm } from "@/services/auth/altv";
 import { otpValidate, digitValidate, tabChange} from "@/services/auth/otpForm"
 
 import icon_back from '@/assets/auth/img/icon_back.png'
@@ -119,8 +119,12 @@ const emit = defineEmits(['switch-to-reset']);
                 <button type="button" class="btn btn-back" @click="switchOtpForm"><img :src="icon_back" style="width: 25px;"></button>
             </div>
             <div class="col-10 text-center">
-                <button type="button" class="btn btn-grad w-100">Продолжить</button>
+                <button type="button" class="btn btn-grad w-100" @click="submitOtpForm">Продолжить</button>
             </div>
+        </div>
+
+        <div class="mt-3 text-center" id="otp-block-error" style="display: none;">
+            <h6 class="text-danger" id="otp-error-message"></h6>
         </div>
     </div>
 
