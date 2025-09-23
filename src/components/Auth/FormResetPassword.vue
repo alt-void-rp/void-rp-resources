@@ -1,8 +1,8 @@
 <script setup>
 import "@/assets/auth/css/otpStyles.css"
 
-import { isOtp } from "@/services/auth/altv";
-import { onClickResetPasswordButton, switchOtpForm, submitOtpForm } from "@/services/auth/altv";
+import { isOtp, newPassword } from "@/services/auth/altv";
+import { onClickResetPasswordButton, switchOtpForm, submitOtpForm, switchNewPasswordForm, setNewPassword } from "@/services/auth/altv";
 import { otpValidate, digitValidate, tabChange} from "@/services/auth/otpForm"
 
 import icon_back from '@/assets/auth/img/icon_back.png'
@@ -38,11 +38,15 @@ const emit = defineEmits(['switch-to-reset']);
         <div class="mt-3 text-center" id="reset-pass-block-error" style="display: none;">
             <h6 class="text-danger" id="reset-pass-error-message"></h6>
         </div>
+
+        <div class="mt-3 text-center" id="reset-pass-block-success" style="display: none;">
+            <h6 class="text-success" id="reset-pass-success-message"></h6>
+        </div>
     </div>
 
 
 
-    <div v-if="isOtp">
+    <div v-if="isOtp && !newPassword">
         <div class="text-center mb-4">
             <h4 class="text-light">Восстановление пароля</h4>
             <p class="text-light" style="font-size: 14px;">Вам на почту отправленно письмо с кодом!</p>
@@ -125,6 +129,32 @@ const emit = defineEmits(['switch-to-reset']);
 
         <div class="mt-3 text-center" id="otp-block-error" style="display: none;">
             <h6 class="text-danger" id="otp-error-message"></h6>
+        </div>
+    </div>
+
+    <div v-if="isOtp && newPassword">
+        <div class="text-center mb-4">
+            <h4 class="text-light">Восстановление пароля</h4>
+            <p class="text-light" style="font-size: 14px;">Введите новый пароль.</p>
+        </div>
+        <div class="mb-3">
+            <h6 class="text-light" style="font-weight: 600;">Пароль</h6>
+            <input type="password" id="new_password_field" class="form-control  text-light"
+                placeholder="Новый пароль">
+                <h6 class="text-light mt-3" style="font-weight: 600;">Повтор пароля</h6>
+            <input type="password" id="repeat_new_password_field" class="form-control  text-light"
+                placeholder="Повторите новый пароль">
+        </div>
+        <div class="row mt-3 d-flex justify-content-center">
+            <div class="col-2 text-center">
+                <button type="button" class="btn btn-back" @click="switchNewPasswordForm"><img :src="icon_back" style="width: 25px;"></button>
+            </div>
+            <div class="col-10 text-center">
+                <button type="button" class="btn btn-grad w-100" @click="setNewPassword">Продолжить</button>
+            </div>
+        </div>
+        <div class="mt-3 text-center" id="new-password-block-error" style="display: none;">
+            <h6 class="text-danger" id="new-password-error-message"></h6>
         </div>
     </div>
 

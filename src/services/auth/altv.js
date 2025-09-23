@@ -1,11 +1,57 @@
 import { ref } from 'vue';
 
 export const isOtp = ref(false);
+export const newPassword = ref(false);
 
 if (window.alt === undefined) {
     window.alt = {
         emit: () => { },
         on: () => { },
+    };
+}
+
+function validatePassword(new_password, repeat_new_password) {
+    const errors = [];
+
+    // Проверка на пустоту
+    if (!new_password) {
+        errors.push("Пароль не может быть пустым.");
+    }
+
+    // Проверка совпадения паролей
+    if (new_password !== repeat_new_password) {
+        errors.push("Пароли не совпадают.");
+    }
+
+    // Минимальная длина (например, 8 символов)
+    if (new_password.length < 8) {
+        errors.push("Пароль должен содержать не менее 8 символов.");
+    }
+
+    // Проверка на наличие хотя бы одной заглавной буквы
+    if (!/[A-ZА-ЯЁ]/.test(new_password)) {
+        errors.push("Пароль должен содержать хотя бы одну заглавную букву.");
+    }
+
+    // Проверка на наличие хотя бы одной строчной буквы
+    if (!/[a-zа-яё]/.test(new_password)) {
+        errors.push("Пароль должен содержать хотя бы одну строчную букву.");
+    }
+
+    // Проверка на наличие хотя бы одной цифры
+    if (!/\d/.test(new_password)) {
+        errors.push("Пароль должен содержать хотя бы одну цифру.");
+    }
+
+    // Проверка на наличие хотя бы одного специального символа
+    if (!/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(new_password)) {
+        errors.push("Пароль должен содержать хотя бы один специальный символ (!@#$%^&* и т.д.).");
+    }
+
+    // Возвращаем результат
+    return {
+        isValid: errors.length === 0,
+        errors: errors
     };
 }
 
@@ -15,6 +61,14 @@ function showErrorBox(message, id_block_error, id_error_message) {
     block_error.style.display = "block";
 
     message_error.innerHTML = message;
+}
+
+function showSuccessBox(message, id_block_success, id_success_message) {
+    let block_success = document.getElementById(id_block_success);
+    let message_success = document.getElementById(id_success_message);
+    block_success.style.display = "block";
+
+    message_success.innerHTML = message;
 }
 
 function hideErrorBox(id_block_error) {
@@ -60,13 +114,31 @@ export function submitOtpForm() {
     alt.emit("auth:otpValidate", jsonData);
 }
 
+export function switchNewPasswordForm() {
+    newPassword.value = !newPassword.value;
+}
 
-alt.on('auth:failAuthUser', (data) => {
-    if (data.reason == "password-login-novalid") {
-        showErrorBox(data.message, 'block-error', 'error-message');
+export function setNewPassword() {
+    const new_password = document.getElementById('new_password_field').value.trim();
+    const repeat_new_password = document.getElementById('repeat_new_password_field').value.trim();
+
+    const validation = validatePassword(new_password, repeat_new_password);
+
+    if (validation.isValid) {
+
+
+        // отправить запрос
+        switchNewPasswordForm();
+        switchOtpForm();
+        setTimeout(() => {
+            showSuccessBox("Вы успешно поменяли пароль!", "reset-pass-block-success", "reset-pass-success-message");
+        }, 1000);
+
+    } else {
+        validation.errors.forEach(error => showErrorBox(error, 'new-password-block-error', 'new-password-error-message'));
     }
-});
 
+}
 
 
 alt.on('auth:failResetPasswordUser', (data) => {
@@ -96,6 +168,8 @@ alt.on('auth:successOtpUser', (data) => {
     if (!data.success) {
         return;
     }
+
+    newPassword.value = true;
 });
 
 

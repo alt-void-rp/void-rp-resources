@@ -4,7 +4,7 @@ import "@/assets/auth/css/styles.css"
 import logo from '@/assets/auth/img/logo_light.png'
 
 import FormAuth from "@/components/Auth/FormAuth.vue";
-import FormResetPassword from "./FormResetPassword.vue";
+import FormResetPassword from "../../components/Auth/FormResetPassword.vue";
 
 let isActive = ref(false)
 const onSwitchToReset = () => {
