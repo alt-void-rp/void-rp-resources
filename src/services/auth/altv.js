@@ -75,6 +75,13 @@ function hideErrorBox(id_block_error) {
     let block_error = document.getElementById(id_block_error);
     block_error.style.display = "none";
 }
+
+
+function successAuthUser(data) {
+    window.location.href += "/profiles/";
+    console.log(data);
+}
+
 //
 
 export function onClickLoginButton() {
@@ -140,7 +147,13 @@ export function setNewPassword() {
 
 }
 
+//auth
 
+alt.on('auth:successAuthUser', (data) => {
+    successAuthUser(data);
+})
+
+// reset password
 alt.on('auth:failResetPasswordUser', (data) => {
     if (data.reason == "password-reset-email-no-found") {
         showErrorBox(data.message, 'reset-pass-block-error', 'reset-pass-error-message');

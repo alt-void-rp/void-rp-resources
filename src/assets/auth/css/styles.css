@@ -1,7 +1,7 @@
 @import "bootstrap";
 
 body {
-    background-color: #212529;
+    background-color: #212529d2;
     font-family: 'SF-Pro-Display-Semibold', serif;
 }
 
@@ -9,9 +9,22 @@ body {
     border: 2px solid white;
 }
 
-.btn-grad {
-    background-image: linear-gradient(to right, #232526 0%, #414345 51%, #232526 100%)
+.profile-card {
+    background-image: linear-gradient(to bottom, #232526 0%, #333536ab 51%, #232526 100%)
 }
+
+.top-card {
+    background-image: linear-gradient(to bottom, #5047a5 0%, #5047a5 100%)
+}
+
+.top-content-card {
+    background-image: linear-gradient(to left, #232526 0%, #33353654 51%, #232526 100%)
+}
+
+.btn-grad {
+    background-image: linear-gradient(to right, #232526c9 0%, #414345c9 51%, #23252693 100%)
+}
+
 
 .btn-grad {
     text-align: center;
@@ -20,8 +33,12 @@ body {
     background-size: 200% auto;
     color: white;
     border-radius: 10px;
-    display: block;
     font-weight: 700;
+    font-size: 12px;
+    min-height: 40px;
+    min-width: 100%;
+
+    max-width: 90%;
     border: 1px solid rgba(80, 80, 80, 0.829);
 }
 
@@ -33,7 +50,7 @@ body {
 }
 
 .btn-back {
-    background-image: linear-gradient(to right, #232526 0%, #414345 51%, #232526 100%)
+    background-image: linear-gradient(to right, #232526c9 0%, #41434562 51%, #23252693 100%)
 }
 
 .btn-back {
@@ -45,6 +62,7 @@ body {
     border-radius: 10px;
     display: block;
     font-weight: 700;
+    max-height: 40px;
     border: 1px solid rgba(80, 80, 80, 0.829);
 
 }

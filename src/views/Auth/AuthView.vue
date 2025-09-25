@@ -13,11 +13,11 @@ const onSwitchToReset = () => {
 </script>
 
 <template>
-  <div class="container-fluid justify-content-center bg-dark">
+  <div class="container-fluid justify-content-center">
 
         <div class="row d-flex justify-content-center" style="height: 80vh;">
 
-            <div class="col-5 d-flex justify-content-center align-items-center">
+            <div class="col-12 col-lg-5 d-flex justify-content-center align-items-center">
                 <div class="row d-flex justify-content-center">
                     <div class="row d-flex justify-content-center text-center">
                         <img :src="logo" style="width: 150px;" alt="">
@@ -25,7 +25,7 @@ const onSwitchToReset = () => {
                             Создай её сам.</p>
                     </div>
                     <div class="row d-flex justify-content-center mt-3">
-                        <div class="col-10">
+                        <div class="col-12 col-lg-10">
 
                             
                             <FormAuth 

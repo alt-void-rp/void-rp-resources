@@ -26,11 +26,11 @@ const emit = defineEmits(['switch-to-reset']);
                 placeholder="Ваша почта">
         </div>
         
-        <div class="row ">
-            <div class="col-2 text-center">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-3 col-lg-2 col-md-3 col-sm-4 col-xs-6 text-center ">
                 <button type="button" class="btn btn-back" @click="emit('switch-to-reset')"><img :src="icon_back" style="width: 25px;"></button>
             </div>
-            <div class="col-10 text-center">
+            <div class="col-9 col-lg-10 col-md-9 col-sm-8 col-xs-6 text-center">
                 <button type="button" class="btn btn-grad w-100" @click="onClickResetPasswordButton">Восстановить пароль</button>
             </div>
         </div>

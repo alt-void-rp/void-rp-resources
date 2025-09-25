@@ -5,16 +5,16 @@ const emit = defineEmits(['switch-to-reset']);
 </script>
 
 <template>
-    <div>
+    <div class="text-center">
 
         <form id="auth-form">
             <div class="mb-3">
-                <h6 class="text-light" style="font-weight: 600;">Ваш ник</h6>
-                <input type="text" id="login_field" class="form-control  text-light"
+                <h6 class="text-light">Ваш никнейм</h6>
+                <input type="text" id="login_field" class="form-control text-light"
                     placeholder="Ваш никнейм">
             </div>
             <div class="mb-3">
-                <h6 class="text-light" style="font-weight: 600;">Ваш пароль</h6>
+                <h6 class="text-light">Ваш пароль</h6>
 
                 <input type="password" id="password_field" class="form-control  text-light"
                     placeholder="Пароль">
