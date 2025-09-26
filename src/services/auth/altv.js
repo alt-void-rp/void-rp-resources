@@ -10,6 +10,21 @@ if (window.alt === undefined) {
     };
 }
 
+export function formatMoney(amount, currency = '', thousandSeparator = ' ') {
+    if (typeof amount !== 'number') {
+        return `0${currency ? ` ${currency}` : ''}`;
+    }
+
+    // Округляем до ближайшего целого (можно использовать Math.floor, Math.ceil — по желанию)
+    const integerPart = Math.round(amount);
+
+    // Форматируем с разделителем тысяч
+    const formatted = integerPart.toString().replace(/\B(?=(\d{3})+(?!\d))/g, thousandSeparator);
+
+    // Добавляем валюту, если указана
+    return currency ? `${formatted} ${currency}` : formatted;
+}
+
 function validatePassword(new_password, repeat_new_password) {
     const errors = [];
 

@@ -18,7 +18,7 @@ const emit = defineEmits(['switch-to-reset']);
     
         <div class="text-center mb-4">
             <h4 class="text-light">Восстановление пароля</h4>
-            <p class="text-light" style="font-size: 14px;">Введите почту которую вы указали при регистрации.</p>
+            <h7 class="text-light" style="font-size: 14px; ">Введите почту которую вы указали при регистрации.</h7>
         </div>
         <div class="mb-3">
             <h6 class="text-light" style="font-weight: 600;">Почта</h6>
@@ -49,7 +49,7 @@ const emit = defineEmits(['switch-to-reset']);
     <div v-if="isOtp && !newPassword">
         <div class="text-center mb-4">
             <h4 class="text-light">Восстановление пароля</h4>
-            <p class="text-light" style="font-size: 14px;">Вам на почту отправленно письмо с кодом!</p>
+            <h7 class="text-light" style="font-size: 14px;">Вам на почту отправленно письмо с кодом!</h7>
         </div>
 
         <form>
@@ -135,7 +135,7 @@ const emit = defineEmits(['switch-to-reset']);
     <div v-if="isOtp && newPassword">
         <div class="text-center mb-4">
             <h4 class="text-light">Восстановление пароля</h4>
-            <p class="text-light" style="font-size: 14px;">Введите новый пароль.</p>
+            <h7 class="text-light" style="font-size: 14px;">Введите новый пароль.</h7>
         </div>
         <div class="mb-3">
             <h6 class="text-light" style="font-weight: 600;">Пароль</h6>

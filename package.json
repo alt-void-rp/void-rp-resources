@@ -13,12 +13,14 @@
     "lint": "eslint . --fix"
   },
   "dependencies": {
+    "@heroui/progress": "^2.2.21",
     "@tailwindcss/vite": "^4.1.13",
     "axios": "^1.12.2",
     "bootstrap": "^5.3.8",
     "pinia": "^3.0.3",
     "vue": "^3.5.18",
-    "vue-router": "^4.5.1"
+    "vue-router": "^4.5.1",
+    "vue3-circle-progress": "^1.0.7"
   },
   "devDependencies": {
     "@eslint/js": "^9.31.0",

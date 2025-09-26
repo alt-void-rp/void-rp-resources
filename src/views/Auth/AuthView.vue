@@ -21,8 +21,8 @@ const onSwitchToReset = () => {
                 <div class="row d-flex justify-content-center">
                     <div class="row d-flex justify-content-center text-center">
                         <img :src="logo" style="width: 150px;" alt="">
-                        <p class="slogan text-light mt-3" style="font-weight: 600;">Твоя история начинается в пустоте.
-                            Создай её сам.</p>
+                        <h6 class="slogan text-light mt-3" style="font-weight: 600;">Твоя история начинается в пустоте.
+                            Создай её сам.</h6>
                     </div>
                     <div class="row d-flex justify-content-center mt-3">
                         <div class="col-12 col-lg-10">

@@ -2,23 +2,69 @@
 
 body {
     background-color: #212529d2;
-    font-family: 'SF-Pro-Display-Semibold', serif;
+    font-family: 'SF Pro Display', serif;
 }
 
 .border {
     border: 2px solid white;
 }
 
+
 .profile-card {
-    background-image: linear-gradient(to bottom, #232526 0%, #333536ab 51%, #232526 100%)
+    background-image: linear-gradient(to left, #2325269a 0%, #333536ab 51%, #232526 100%);
 }
 
+.profile-card {
+    border-radius: 10px;
+
+    transform: perspective(1000px) rotateX(3.5deg) rotateY(5deg) scale(0.98);
+
+    transition: all 0.2s ease-in-out;
+    border: 1px solid rgba(80, 80, 80, 0.829);
+
+
+    background-size: 200% auto;
+
+    max-width: 90%;
+}
+
+
+.profile-card:hover {
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);
+    background-position: top center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+
+    cursor: pointer;
+    z-index: 1;
+}
+
+
+.profile-content {
+    filter: blur(0px);
+    transition: all 0.2s ease-in-out;
+}
+
+.profile-content:active {
+    filter: blur(5px);
+}
+
+.profile-content:focus {
+    filter: blur(5px);
+}
+
+
 .top-card {
-    background-image: linear-gradient(to bottom, #5047a5 0%, #5047a5 100%)
+    background-image: linear-gradient(to bottom, #5047a5 0%, #5047a5 100%);
+    border-radius: 10px 0px 0px 0px;
 }
 
 .top-content-card {
-    background-image: linear-gradient(to left, #232526 0%, #33353654 51%, #232526 100%)
+    background-image: linear-gradient(to left, #232526 0%, #33353654 51%, #232526 100%);
+    border-radius: 10px;
+    border-radius: 0px 10px 0px 0px;
+
 }
 
 .btn-grad {
@@ -40,6 +86,7 @@ body {
 
     max-width: 90%;
     border: 1px solid rgba(80, 80, 80, 0.829);
+    transition: background-position 0.3s ease;
 }
 
 .btn-grad:hover {
@@ -64,6 +111,7 @@ body {
     font-weight: 700;
     max-height: 40px;
     border: 1px solid rgba(80, 80, 80, 0.829);
+    transition: background-position 0.3s ease;
 
 }
 
@@ -118,22 +166,29 @@ p {
 }
 
 @font-face {
-    font-family: 'SF-Pro-Display-Semibold';
-    src: url('@/assets/fonts/SanFranciscoProDisplay/SF-Pro-Display-Semibold.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'SF-Pro-Display-Regular';
+    font-family: 'SF Pro Display';
     src: url('@/assets/fonts/SanFranciscoProDisplay/SF-Pro-Display-Regular.otf') format('opentype');
-    font-weight: normal;
+    font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'SF-Pro-Display-Medium';
+    font-family: 'SF Pro Display';
     src: url('@/assets/fonts/SanFranciscoProDisplay/SF-Pro-Display-Medium.otf') format('opentype');
-    font-weight: normal;
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('@/assets/fonts/SanFranciscoProDisplay/SF-Pro-Display-Semibold.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('@/assets/fonts/SanFranciscoProDisplay/SF-Pro-Display-Bold.otf') format('opentype');
+    font-weight: 700;
     font-style: normal;
 }
