@@ -10,15 +10,14 @@ import profile_2 from '@/assets/profiles/img/profile_2.png';
 import profile_3 from '@/assets/profiles/img/profile_3.png';
 
 const profileMap = {
-  1: profile_1,
-  2: profile_2,
-  3: profile_3
+  0: profile_1,
+  1: profile_2,
+  2: profile_3
 };
 
 
 const CHARACTERS = {
     0: {
-        "person": 1,
         "username": "MIRONOOUV",
         "first_name": "Алексис",   
         "last_name": "Миронооу",
@@ -28,8 +27,8 @@ const CHARACTERS = {
         "cash_money": 1350,
         "hours_in_game": 322
     },
-    1: {"person": 2,"username": "MIRONOOUV",},
-    2: {"person": 3,"username": "MIRONOOUV",}
+    1: {"username": "MIRONOOUV",},
+    2: {"username": "MIRONOOUV",}
 }
 
 const username = CHARACTERS[0].username;
@@ -84,7 +83,9 @@ const hours_in_game = 322;
 
                 </div>
 
-                <div class="col-3 profile-card profile-grad shadow"  v-for="character in CHARACTERS" >
+                <div class="col-3 profile-card profile-grad shadow"  
+                    v-for="(character, index) in CHARACTERS" 
+                >
                     <div v-if="character.first_name" class="profile-content">
 
                         <div  class="row d-flex justify-content-between">
@@ -92,7 +93,7 @@ const hours_in_game = 322;
                                 <img :src="user_icon" width="20" height="20">
                             </div>
                             <div class="col-10 top-content-card shadow-sm d-flex align-items-center ">
-                                <h7 class="text-light " style="font-weight: 700;">ПЕРСОНАЖ #{{character.person}}</h7>
+                                <h7 class="text-light " style="font-weight: 700;">ПЕРСОНАЖ #{{index}}</h7>
                             </div>
                         </div>
 
@@ -106,7 +107,7 @@ const hours_in_game = 322;
                             <div class="col-12 d-flex justify-content-center" 
                             :style="{
                                         height: '400px',
-                                        backgroundImage: `url(${profileMap[character.person]})`,
+                                        backgroundImage: `url(${profileMap[index]})`,
                                         backgroundSize: 'cover',
                                         backgroundPosition: 'center',
                                     }">
@@ -191,7 +192,7 @@ const hours_in_game = 322;
                             <div class="col-12 d-flex align-items-end justify-content-center" 
                             :style="{
                                         height: '400px',
-                                        backgroundImage: `url(${profileMap[character.person]})`,
+                                        backgroundImage: `url(${profileMap[index]})`,
                                         backgroundSize: 'cover',
                                         backgroundPosition: 'center',
                                     }">
