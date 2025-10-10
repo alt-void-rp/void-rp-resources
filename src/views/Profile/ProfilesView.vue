@@ -1,8 +1,6 @@
 <script setup>
-import { ref, Text } from 'vue' 
 import "@/assets/auth/css/styles.css"
 import {formatMoney} from "@/services/auth/altv"
-import logo from '@/assets/auth/img/logo_light.png'
 import user_icon from '@/assets/profiles/img/user_icon.png'
 
 import profile_1 from '@/assets/profiles/img/profile_1.png';
@@ -19,7 +17,7 @@ const profileMap = {
 const CHARACTERS = {
     0: {
         "username": "MIRONOOUV",
-        "first_name": "Алексис",   
+        "first_name": "Алексис",
         "last_name": "Миронооу",
         "lvl": 2,
         "exp": 3,
@@ -79,13 +77,11 @@ const hours_in_game = 322;
 
                         </div>
                     </div>
-                        
+
 
                 </div>
 
-                <div class="col-3 profile-card profile-grad shadow"  
-                    v-for="(character, index) in CHARACTERS" 
-                >
+                <div class="col-3 profile-card profile-grad shadow" v-for="(character, index) in CHARACTERS" :key="index">
                     <div v-if="character.first_name" class="profile-content">
 
                         <div  class="row d-flex justify-content-between">
@@ -101,10 +97,10 @@ const hours_in_game = 322;
                             <h4 class="text-light" style="font-weight: 700;">{{character.last_name.toUpperCase()}}</h4>
                             <h5 class="text-light" style="font-weight: 300;">{{character.first_name.toUpperCase()}}</h5>
                         </div>
-                        
+
 
                         <div class="row d-flex justify-content-center mt-2">
-                            <div class="col-12 d-flex justify-content-center" 
+                            <div class="col-12 d-flex justify-content-center"
                             :style="{
                                         height: '400px',
                                         backgroundImage: `url(${profileMap[index]})`,
@@ -122,7 +118,7 @@ const hours_in_game = 322;
                                                     <div class="col-7 text-end">
                                                         <h3 class="" style="font-weight: 700; color: #7369d6;">{{35}}</h3>
                                                     </div>
-                                                    
+
                                                 </div>
 
                                                 <div class="row d-flex align-items-center justify-content-between">
@@ -133,7 +129,7 @@ const hours_in_game = 322;
                                                         <h3 style="font-weight: 700; color: #7369d6;">{{character.exp}}</h3>
                                                     </div>
                                                 </div>
-                                                
+
                                             </div>
 
                                         </div>
@@ -157,12 +153,12 @@ const hours_in_game = 322;
                                                     </div>
                                                 </div>
 
-                                                
+
                                             </div>
 
                                         </div>
-                                        
-                                        
+
+
 
                                         <div class="play-button mt-2 d-flex justify-content-center align-self-end">
                                             <button style=" height: 50px; font-size: 18px;" class="btn btn-grad m-2">НАЧАТЬ ИГРУ</button>
@@ -189,7 +185,7 @@ const hours_in_game = 322;
                         </div>
 
                         <div class="row d-flex justify-content-center mt-2 ">
-                            <div class="col-12 d-flex align-items-end justify-content-center" 
+                            <div class="col-12 d-flex align-items-end justify-content-center"
                             :style="{
                                         height: '400px',
                                         backgroundImage: `url(${profileMap[index]})`,
@@ -203,12 +199,12 @@ const hours_in_game = 322;
                         </div>
                     </div>
 
-                    
+
                 </div>
             </div>
 
-            
-            
+
+
         </div>
 
     </div>

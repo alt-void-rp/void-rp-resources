@@ -10,7 +10,15 @@ if (window.alt === undefined) {
     };
 }
 
-export function formatMoney(amount, currency = '', thousandSeparator = ' ') {
+
+/**`
+ *
+ * @param {int} amount
+ * @param {*} currency
+ * @param {*} thousandSeparator
+ * @returns
+ */
+export function formatMoney(amount, currency = '', thousandSeparator = ' ')  {
     if (typeof amount !== 'number') {
         return `0${currency ? ` ${currency}` : ''}`;
     }
@@ -59,7 +67,7 @@ function validatePassword(new_password, repeat_new_password) {
     }
 
     // Проверка на наличие хотя бы одного специального символа
-    if (!/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(new_password)) {
+    if (!/[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(new_password)) {
         errors.push("Пароль должен содержать хотя бы один специальный символ (!@#$%^&* и т.д.).");
     }
 
@@ -86,16 +94,13 @@ function showSuccessBox(message, id_block_success, id_success_message) {
     message_success.innerHTML = message;
 }
 
-function hideErrorBox(id_block_error) {
-    let block_error = document.getElementById(id_block_error);
-    block_error.style.display = "none";
-}
 
 
 function successAuthUser(data) {
     window.location.href += "/profiles/";
     console.log(data);
 }
+
 
 //
 
@@ -109,7 +114,7 @@ export function onClickLoginButton() {
     };
 
     const jsonData = JSON.stringify(data);
-    alt.emit("auth:loginUser", jsonData);
+    window.alt.emit("auth:loginUser", jsonData);
 }
 
 
@@ -120,7 +125,7 @@ export function onClickResetPasswordButton() {
     };
 
     const jsonData = JSON.stringify(data);
-    alt.emit("auth:resetPasswordUser", jsonData);
+    window.alt.emit("auth:resetPasswordUser", jsonData);
 }
 
 export function switchOtpForm() {
@@ -133,7 +138,7 @@ export function submitOtpForm() {
     };
 
     const jsonData = JSON.stringify(data);
-    alt.emit("auth:otpValidate", jsonData);
+    window.alt.emit("auth:otpValidate", jsonData);
 }
 
 export function switchNewPasswordForm() {
@@ -164,19 +169,24 @@ export function setNewPassword() {
 
 //auth
 
-alt.on('auth:successAuthUser', (data) => {
+window.alt.on('auth:successAuthUser', (data) => {
     successAuthUser(data);
 })
 
+
+window.alt.on('auth:failAuthUser', () => {
+    showErrorBox('Неверный логин или пароль!', 'block-error', 'error-message');
+})
+
 // reset password
-alt.on('auth:failResetPasswordUser', (data) => {
+window.alt.on('auth:failResetPasswordUser', (data) => {
     if (data.reason == "password-reset-email-no-found") {
         showErrorBox(data.message, 'reset-pass-block-error', 'reset-pass-error-message');
     }
 });
 
 
-alt.on('auth:successResetPasswordUser', (data) => {
+window.alt.on('auth:successResetPasswordUser', (data) => {
     if (!data.success) {
         return;
     }
@@ -186,13 +196,13 @@ alt.on('auth:successResetPasswordUser', (data) => {
 
 // otp
 
-alt.on('auth:novalidOtpUser', (data) => {
+window.alt.on('auth:novalidOtpUser', (data) => {
     if (data.reason == "otp-code-novalid") {
         showErrorBox(data.message, 'otp-block-error', 'otp-error-message');
     }
 });
 
-alt.on('auth:successOtpUser', (data) => {
+window.alt.on('auth:successOtpUser', (data) => {
     if (!data.success) {
         return;
     }
