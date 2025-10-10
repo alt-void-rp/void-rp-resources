@@ -1,6 +1,7 @@
 <script setup>
 import "@/assets/auth/css/styles.css"
-import {formatMoney} from "@/services/auth/altv"
+import { formatMoney } from "@/utils/formatMoney.js"
+
 import user_icon from '@/assets/profiles/img/user_icon.png'
 
 import profile_1 from '@/assets/profiles/img/profile_1.png';
