@@ -130,10 +130,9 @@ export function useAuth() {
   onMounted(() => {
     // Успешный вход
     alt.on(EVENTS.SERVER.LOGIN_SUCCESS, (data) => {
-      console.log('asd');
       isLoading.value = false;
       if (data.success) {
-        window.location.href = '/profiles/';
+        window.location.href = 'auth/profiles';
       }
     });
 
