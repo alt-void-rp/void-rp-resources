@@ -10,7 +10,7 @@ import profile_1 from '@/assets/profiles/img/profile_1.png';
 import profile_2 from '@/assets/profiles/img/profile_2.png';
 import profile_3 from '@/assets/profiles/img/profile_3.png';
 
-const { getUsersMe, connectToGame, alerts, isLoading } = useProfiles();
+const { getUsersMe, connectToGame, createNewPerson, alerts, isLoading } = useProfiles();
 
 getUsersMe();
 
@@ -160,7 +160,7 @@ const hours_in_game = 322;
                                         </div>
 
                                         <div v-else class="play-button mt-2 d-flex justify-content-center align-self-end">
-                                            <button style="height: 50px; font-size: 18px;" class="btn btn-grad m-2">СОЗДАТЬ ПЕРСОНАЖА</button>
+                                            <button style="height: 50px; font-size: 18px;" class="btn btn-grad m-2" v-on:click="createNewPerson()">СОЗДАТЬ ПЕРСОНАЖА</button>
                                         </div>
 
                                     </div>
