@@ -5,6 +5,7 @@ export const EVENTS = {
     OTP_VALIDATE: 'auth:otpValidate',
 
     GET_USERS_ME: 'users:getUsersMe',
+    CONNECT_TO_GAME: 'users:connectToGame',
   },
   SERVER: {
     LOGIN_SUCCESS: 'auth:successAuthUser',

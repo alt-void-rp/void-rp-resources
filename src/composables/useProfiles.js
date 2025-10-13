@@ -18,6 +18,10 @@ export function useProfiles(){
     alt.emit(EVENTS.CLIENT.GET_USERS_ME, {});
   };
 
+  const connectToGame = (data) => {
+    alt.emit(EVENTS.CLIENT.CONNECT_TO_GAME, data);
+  };
+
   onMounted(() => {
     alt.on(EVENTS.SERVER.GET_USERS_ME_SUCCESS, (data) => {
       clearAlerts();
@@ -37,6 +41,7 @@ export function useProfiles(){
 
     alerts,
 
-    getUsersMe
+    getUsersMe,
+    connectToGame
   }
 }
