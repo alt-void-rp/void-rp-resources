@@ -1,7 +1,7 @@
 // src/composables/useAuth.js
 import { ref, reactive, onMounted } from 'vue';
 import alt from '@/services/altv.js';
-import { EVENTS } from '@/shared/constants.js';
+import { AUTH_EVENTS } from '@/shared/constants.js';
 
 export function useAuth() {
   // Состояние форм
@@ -51,7 +51,7 @@ export function useAuth() {
 
     isLoading.value = true;
     clearAlerts();
-    alt.emit(EVENTS.CLIENT.LOGIN, JSON.stringify({ username, password }));
+    alt.emit(AUTH_EVENTS.CLIENT.LOGIN, JSON.stringify({ username, password }));
   };
 
   const requestPasswordReset = () => {
@@ -63,7 +63,7 @@ export function useAuth() {
 
     isLoading.value = true;
     clearAlerts();
-    alt.emit(EVENTS.CLIENT.RESET_PASSWORD, JSON.stringify({ email }));
+    alt.emit(AUTH_EVENTS.CLIENT.RESET_PASSWORD, JSON.stringify({ email }));
   };
 
   const verifyOtp = () => {
@@ -77,7 +77,7 @@ export function useAuth() {
 
     isLoading.value = true;
     clearAlerts();
-    alt.emit(EVENTS.CLIENT.OTP_VALIDATE, JSON.stringify({ otp_code: otpCode }));
+    alt.emit(AUTH_EVENTS.CLIENT.OTP_VALIDATE, JSON.stringify({ otp_code: otpCode }));
   };
 
   const setNewPassword = () => {
@@ -129,7 +129,7 @@ export function useAuth() {
   // --- ОБРАБОТКА СОБЫТИЙ ОТ СЕРВЕРА ---
   onMounted(() => {
     // Успешный вход
-    alt.on(EVENTS.SERVER.LOGIN_SUCCESS, (data) => {
+    alt.on(AUTH_EVENTS.SERVER.LOGIN_SUCCESS, (data) => {
       isLoading.value = false;
       if (data.success) {
         window.location.href = 'auth/profiles';
@@ -137,32 +137,32 @@ export function useAuth() {
     });
 
     // Ошибка входа
-    alt.on(EVENTS.SERVER.LOGIN_FAIL, (data) => {
+    alt.on(AUTH_EVENTS.SERVER.LOGIN_FAIL, (data) => {
       isLoading.value = false;
       alerts.login.error = data.message || 'Неверный логин или пароль';
     });
 
     // Успешный запрос сброса → переход к OTP
-    alt.on(EVENTS.SERVER.RESET_SUCCESS, (data) => {
+    alt.on(AUTH_EVENTS.SERVER.RESET_SUCCESS, (data) => {
       console.log('🔍 RESET_SUCCESS получил данные:', data);
       isLoading.value = false;
       if (data.success) switchToOtp();
     });
 
     // Ошибка сброса
-    alt.on(EVENTS.SERVER.RESET_FAIL, (data) => {
+    alt.on(AUTH_EVENTS.SERVER.RESET_FAIL, (data) => {
       isLoading.value = false;
       alerts.reset.error = data.message || 'Ошибка при сбросе пароля';
     });
 
     // Успешный OTP → переход к новому паролю
-    alt.on(EVENTS.SERVER.OTP_SUCCESS, (data) => {
+    alt.on(AUTH_EVENTS.SERVER.OTP_SUCCESS, (data) => {
       isLoading.value = false;
       if (data.success) switchToNewPassword();
     });
 
     // Ошибка OTP
-    alt.on(EVENTS.SERVER.OTP_FAIL, (data) => {
+    alt.on(AUTH_EVENTS.SERVER.OTP_FAIL, (data) => {
       isLoading.value = false;
       alerts.otp.error = data.message || 'Неверный код';
     });

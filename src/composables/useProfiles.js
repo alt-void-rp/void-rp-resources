@@ -1,6 +1,6 @@
 import { ref, reactive, onMounted } from 'vue';
 import alt from '@/services/altv.js';
-import { EVENTS } from '@/shared/constants.js';
+import { AUTH_EVENTS } from '@/shared/constants.js';
 
 export function useProfiles(){
   const isLoading = ref(false);
@@ -15,25 +15,25 @@ export function useProfiles(){
   };
 
   const getUsersMe = () => {
-    alt.emit(EVENTS.CLIENT.GET_USERS_ME, {});
+    alt.emit(AUTH_EVENTS.CLIENT.GET_USERS_ME, {});
   };
 
   const connectToGame = (data) => {
-    alt.emit(EVENTS.CLIENT.CONNECT_TO_GAME, data);
+    alt.emit(AUTH_EVENTS.CLIENT.CONNECT_TO_GAME, data);
   };
 
   const createNewPerson = () => {
-    alt.emit(EVENTS.CLIENT.CREATE_PERSON);
+    alt.emit(AUTH_EVENTS.CLIENT.CREATE_PERSON);
   };
 
   onMounted(() => {
-    alt.on(EVENTS.SERVER.GET_USERS_ME_SUCCESS, (data) => {
+    alt.on(AUTH_EVENTS.SERVER.GET_USERS_ME_SUCCESS, (data) => {
       clearAlerts();
       alerts.profiles.success = data;
       isLoading.value = true;
     });
 
-    alt.on(EVENTS.SERVER.GET_USERS_ME_FAIL, (data) => {
+    alt.on(AUTH_EVENTS.SERVER.GET_USERS_ME_FAIL, (data) => {
       alerts.profiles.error = data;
       isLoading.value = false;
     });
