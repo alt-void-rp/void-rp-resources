@@ -34,6 +34,8 @@ export const CHARACTER_E_EVENTS = {
     CHARACTER_FOCUS_LIMB: 'character-editor:focusLimb',
     CHARACTER_SET_CAMERA_PRESET: 'character-editor:setPreset',
 
-    CHARACTER_SET_MODEL: 'character-editor:setModel'
+    CHARACTER_SET_MODEL: 'character-editor:setModel',
+    CHARACTER_CAMERA_POSE: 'character-editor:setPoseCamera',
+    CHARACTER_SET_PARENTS: 'character-editor:setPedParents'
   }
 };

@@ -14,7 +14,7 @@ const handleSwitch = () => {
     <form id="auth-form">
       <div class="mb-3">
         <h6 class="text-light">Ваш никнейм</h6>
-        <input type="text" id="login_field" class="form-control text-light" placeholder="Ваш никнейм" />
+        <input type="text" id="login_field" class="form-control form-control-au text-light" placeholder="Ваш никнейм" />
       </div>
       <div class="mb-3">
         <h6 class="text-light">Ваш пароль</h6>

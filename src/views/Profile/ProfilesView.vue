@@ -37,11 +37,11 @@ const hours_in_game = 322;
                                 <img :src="user_icon" width="20" height="20">
                             </div>
                             <div class="col-10 top-content-card shadow-sm d-flex align-items-center ">
-                                <h6 class="text-light " style="font-weight: 700;">ИНФОРМАЦИЯ</h6>
+                                <h6 class="text-light mt-2" style="font-weight: 700;">ИНФОРМАЦИЯ</h6>
                             </div>
                         </div>
 
-                        <div class="row m-1 mt-4 ">
+                        <div class="row m-1 mt-4">
                             <h4 class="text-white" style="font-weight: 700;">{{alerts.profiles.success[0].username}}</h4>
 
 
@@ -77,9 +77,9 @@ const hours_in_game = 322;
                                 <img :src="user_icon" width="20" height="20">
                             </div>
 
-                            <div class="col-10 top-content-card shadow-sm d-flex align-items-center mt-2">
-                                <h6 v-if="alerts.profiles.success[i - 1]" class="text-light " style="font-weight: 700;">ПЕРСОНАЖ #{{i}}</h6>
-                                <h6 v-else class="text-light" style="font-weight: 700;">СВОБОДНО</h6>
+                            <div class="col-10 top-content-card shadow-sm d-flex align-items-center">
+                                <h6 v-if="alerts.profiles.success[i - 1]" class="text-light mt-2" style="font-weight: 700;">ПЕРСОНАЖ #{{i}}</h6>
+                                <h6 v-else class="text-light mt-2" style="font-weight: 700;">СВОБОДНО</h6>
                             </div>
 
 
