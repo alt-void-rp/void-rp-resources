@@ -55,7 +55,7 @@ function selectGenderUI(gender) {
             <img
               :src="manImg"
               alt="Мужской персонаж"
-              class="btn-grad-ce gender-img  p-2"
+              class="btn-grad-ce gender-img p-2 shadow"
               :class="{ selected: selectedGender === 'man' }"
               @click="selectGenderUI('man');selectGender('mp_m_freemode_01');"
             />
@@ -68,7 +68,7 @@ function selectGenderUI(gender) {
               <img
               :src="womanImg"
               alt="Женский персонаж"
-              class="gender-img btn-grad-ce p-2"
+              class="gender-img btn-grad-ce p-2 shadow"
               :class="{ selected: selectedGender === 'woman' }"
               @click="selectGenderUI('woman');selectGender('mp_f_freemode_01');"
             />
@@ -82,7 +82,7 @@ function selectGenderUI(gender) {
     </div>
 
     <h6 class="text-light mt-2">Выбор родителей</h6>
-    <div class="row mt-2 parent-block btn-grad-ce m-1 d-flex justify-content-center">
+    <div class="row mt-2 parent-block btn-grad-ce m-1 shadow d-flex justify-content-center">
         <div class="col-3 d-flex justify-content-center" >
           <img
             class="p-2 "
@@ -116,7 +116,7 @@ function selectGenderUI(gender) {
         </div>
     </div>
 
-    <div class="row mt-2 parent-block btn-grad-ce m-1 d-flex justify-content-center">
+    <div class="row mt-2 parent-block btn-grad-ce m-1 shadow d-flex justify-content-center">
         <div class="col-3 d-flex justify-content-center" >
           <img
             class="p-2 "
@@ -150,7 +150,7 @@ function selectGenderUI(gender) {
         </div>
     </div>
 
-    <h6 class="text-light mt-2">Смешивание параметров тела: {{ alerts.shapeMix.toFixed(1) }}</h6>
+    <h6 class="text-light mt-2">Схожесть: {{ alerts.shapeMix.toFixed(1) }}</h6>
 
     <div class="row d-flex justify-content-center">
       <div class="col-12 d-flex justify-content-center">
@@ -162,7 +162,7 @@ function selectGenderUI(gender) {
             step="0.01"
             v-model.number="alerts.shapeMix"
             @input="onShapeMixChange"
-            class="slider"
+            class="slider shadow"
             :style="{ '--value': alerts.shapeMix, '--max': 1 }"
           />
         </div>

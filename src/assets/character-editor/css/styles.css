@@ -82,6 +82,33 @@ body {
     text-decoration: none;
 }
 
+.cam-control {
+  background-image: linear-gradient(to right, #232526c9 0%, #ffb3100c 51%, #ffb3101a 100%)
+}
+
+
+.cam-control {
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 15px;
+  border: 1px solid #7e6329;
+
+  height: 50px;
+  width: 50px;
+
+  transition: background-position 0.3s ease;
+}
+
+.cam-control:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid #7e6329;
+
+}
 
 
 .parent-block{
@@ -202,6 +229,16 @@ p {
   border-radius: 5px;
   outline: none;
   background-color: transparent;
+}
+
+.slider:hover{
+  background: linear-gradient(
+    to right,
+    #d1930da9 0%,
+    #d1930d67 calc(var(--value) / var(--max) * 100%),
+    #292929d8 calc(var(--value) / var(--max) * 100%),
+    #292929a1 100%
+  );
 }
 
 

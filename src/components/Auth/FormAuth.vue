@@ -26,7 +26,7 @@ const handleSwitch = () => {
     </form>
 
     <div type="button" @click="handleSwitch" class="mt-3 text-center" style="cursor: pointer;">
-      <a class="text-decoration-none text-secondary text-reset-password" style="font-weight: 600;">Забыли пароль?</a>
+      <a class="text-decoration-none text-light text-reset-password" style="font-weight: 600;">Забыли пароль?</a>
     </div>
 
     <div class="mt-3 text-center" v-if="alerts.login.error">
