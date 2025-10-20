@@ -40,9 +40,20 @@ body {
 
 .btn-grad-ce:hover {
     background-position: right center;
-    /* change the direction of the change here */
     color: #fff;
     text-decoration: none;
+}
+
+.btn-grad-ce.noactive{
+  text-decoration: none;
+  opacity: 0.3;
+}
+
+.btn-grad-ce.noactive:hover{
+  opacity: 0.3;
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
 }
 
 .btn-back-ce {
@@ -70,6 +81,8 @@ body {
     color: #fff;
     text-decoration: none;
 }
+
+
 
 .parent-block{
   border: 1px solid #ffb31044;
@@ -177,7 +190,7 @@ p {
 
 .slider {
   width: 100%;
-  height: 30px;
+  height: 20px;
   -webkit-appearance: none;
   background: linear-gradient(
     to right,
@@ -195,8 +208,8 @@ p {
 
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 12px;
-  height: 30px;
+  width: 8px;
+  height: 25px;
   border-radius: 3px;
   background: #e6a10f;
   cursor: pointer;
